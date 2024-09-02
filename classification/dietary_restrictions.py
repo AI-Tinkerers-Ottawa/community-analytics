@@ -16,9 +16,10 @@ def get_unique_categories(data_folder, column_name):
         with open(os.path.join(data_folder, filename), 'r') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                value = row.get(column_name, '').strip()
-                if value:
-                    unique_values.add(value)
+                if row.get("approval_status", "").strip().lower() == "approved":
+                    value = row.get(column_name, '').strip()
+                    if value:
+                        unique_values.add(value)
 
     print("Step 2: Generating standardized categories using Groq...")
     client = Groq()
@@ -118,36 +119,38 @@ def process_csv_files(data_folder, column_name, output_file_base, test_run=False
             for i, row in enumerate(reader):
                 if test_run and i >= 10:
                     break
-                text = row.get(column_name, '').strip()
-                if text:
-                    try:
-                        # Check if text is a list
-                        if text.startswith('[') and text.endswith(']'):
-                            text_list = json.loads(text)
-                            classification = []
-                            for item in text_list:
-                                classification.extend(
-                                    classify_dietary_restrictions(item, categories))
+                if row.get("approval_status", "").strip().lower() == "approved":
+                    text = row.get(column_name, '').strip()
+                    if text:
+                        try:
+                            # Check if text is a list
+                            if text.startswith('[') and text.endswith(']'):
+                                text_list = json.loads(text)
+                                classification = []
+                                for item in text_list:
+                                    classification.extend(
+                                        classify_dietary_restrictions(item, categories))
+                                    # Spacer to avoid rapid queries
+                                    time.sleep(0.1)
+                            else:
+                                classification = classify_dietary_restrictions(
+                                    text, categories)
                                 # Spacer to avoid rapid queries
                                 time.sleep(0.1)
-                        else:
-                            classification = classify_dietary_restrictions(
-                                text, categories)
-                            time.sleep(0.1)  # Spacer to avoid rapid queries
-                    except Exception as e:
-                        print(f"Error processing row in file {
-                              filename}: {text}")
-                        print(f"Error: {e}")
-                        try:
-                            classification = classify_dietary_restrictions(
-                                text, categories, use_openai=True)
                         except Exception as e:
-                            print(f"Retry with OpenAI failed: {e}")
-                            classification = ['Error']
-                else:
-                    classification = ['No restrictions']
-                for cat in classification:
-                    classifications[filename].append(cat)
+                            print(f"Error processing row in file {
+                                  filename}: {text}")
+                            print(f"Error: {e}")
+                            try:
+                                classification = classify_dietary_restrictions(
+                                    text, categories, use_openai=True)
+                            except Exception as e:
+                                print(f"Retry with OpenAI failed: {e}")
+                                classification = ['Error']
+                    else:
+                        classification = ['No restrictions']
+                    for cat in classification:
+                        classifications[filename].append(cat)
 
     # Count occurrences of each classification per file
     print("Step 5: Counting occurrences of each classification per file...")
@@ -170,9 +173,9 @@ def process_csv_files(data_folder, column_name, output_file_base, test_run=False
 
 
 # Example usage
-data_folder = './data'
+data_folder = './classification/data'
 column_name = 'Do you have any dietary restrictions?'
-output_file_base = 'classification_results'
+output_file_base = './classification/classification_results'
 
 # Set test_run to True to classify only the first 10 rows
 process_csv_files(data_folder, column_name, output_file_base, test_run=False)

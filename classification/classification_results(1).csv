@@ -1,0 +1,80 @@
+filename,category_name,count
+3:2024.csv,No restrictions,125
+3:2024.csv,Vegetarian,8
+3:2024.csv,Vegan,1
+3:2024.csv,Halal,3
+3:2024.csv,Gluten-free,2
+3:2024.csv,Celiac,2
+3:2024.csv,Dairy-free,2
+3:2024.csv,Tree nut allergy,2
+3:2024.csv,Peanut allergy,2
+3:2024.csv,Nut allergy,1
+2:2024.csv,No restrictions,142
+2:2024.csv,Pork-free,1
+2:2024.csv,Vegan,1
+2:2024.csv,Peanut allergy,2
+2:2024.csv,Tree nut allergy,1
+2:2024.csv,Dairy-free,1
+9:2024.csv,No restrictions,81
+8:2024.csv,Vegetarian,5
+8:2024.csv,Vegan,2
+8:2024.csv,No restrictions,113
+8:2024.csv,Soy allergy,1
+8:2024.csv,Halal,6
+8:2024.csv,Tree nut allergy,1
+8:2024.csv,Pork-free,3
+8:2024.csv,Dairy-free,2
+8:2024.csv,Gluten-free,1
+8:2024.csv,Celiac,1
+4:2024.csv,Vegetarian,12
+4:2024.csv,No restrictions,126
+4:2024.csv,Shellfish allergy,1
+4:2024.csv,Vegan,2
+4:2024.csv,Nut allergy,1
+4:2024.csv,Dairy-free,1
+4:2024.csv,Lactose intolerant,1
+4:2024.csv,Pescetarian,1
+4:2024.csv,Gluten-free,4
+4:2024.csv,Celiac,2
+4:2024.csv,Pork-free,1
+4:2024.csv,Halal,3
+4:2024.csv,Peanut allergy,2
+4:2024.csv,Tree nut allergy,2
+5:2024.csv,No restrictions,107
+5:2024.csv,Vegan,3
+5:2024.csv,Pork-free,5
+5:2024.csv,Beef-free,2
+5:2024.csv,Vegetarian,8
+5:2024.csv,Diabetic,1
+5:2024.csv,Gluten-free,2
+5:2024.csv,Celiac,2
+5:2024.csv,Tree nut allergy,2
+5:2024.csv,Peanut allergy,1
+5:2024.csv,Halal,4
+5:2024.csv,Pescetarian,1
+5:2024.csv,Low Carbs,1
+5:2024.csv,Nut allergy,1
+7:2024.csv,Celiac,1
+7:2024.csv,Gluten-free,2
+7:2024.csv,No restrictions,128
+7:2024.csv,Vegetarian,12
+7:2024.csv,Soy allergy,1
+7:2024.csv,Halal,4
+7:2024.csv,Vegan,1
+7:2024.csv,Pork-free,2
+7:2024.csv,Peanut allergy,2
+7:2024.csv,Tree nut allergy,2
+7:2024.csv,Dairy-free,1
+7:2024.csv,Nut allergy,1
+6:2024.csv,No restrictions,98
+6:2024.csv,Vegan,1
+6:2024.csv,Gluten-free,1
+6:2024.csv,Celiac,1
+6:2024.csv,Peanut allergy,1
+6:2024.csv,Tree nut allergy,1
+6:2024.csv,Lactose intolerant,1
+6:2024.csv,Dairy-free,1
+6:2024.csv,Pork-free,1
+6:2024.csv,Vegetarian,2
+6:2024.csv,Halal,2
+6:2024.csv,Low Carbs,1
